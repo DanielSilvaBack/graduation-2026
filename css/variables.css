@@ -1,0 +1,83 @@
+/* ============================================================
+   variables.css — Design Tokens
+   Graduation Experience 2026 — Daniel Silva
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --bg-primary:   #050816;
+  --bg-secondary: #081120;
+  --bg-tertiary:  #0B132B;
+
+  /* Glow / Accent */
+  --cyan:         #00F5FF;
+  --teal:         #64FFDA;
+  --blue:         #3A86FF;
+  --purple:       #7B2CBF;
+  --purple-light: #9D4EDD;
+
+  /* Text */
+  --text-primary:   #FFFFFF;
+  --text-secondary: #D9E2EC;
+  --text-muted:     #8BAEC8;
+
+  /* Glass */
+  --glass-bg:      rgba(255, 255, 255, 0.04);
+  --glass-border:  rgba(0, 245, 255, 0.12);
+  --glass-shadow:  rgba(0, 245, 255, 0.06);
+
+  /* Gradients */
+  --grad-cyan-blue: linear-gradient(135deg, var(--cyan), var(--blue));
+  --grad-blue-purple: linear-gradient(135deg, var(--blue), var(--purple));
+  --grad-hero: radial-gradient(ellipse at 50% 30%, #0d1f4a 0%, #050816 60%);
+
+  /* Glow filters */
+  --glow-cyan:   drop-shadow(0 0 12px var(--cyan));
+  --glow-blue:   drop-shadow(0 0 12px var(--blue));
+  --glow-purple: drop-shadow(0 0 12px var(--purple));
+
+  /* Typography */
+  --font-display: 'Orbitron', sans-serif;
+  --font-main:    'Space Grotesk', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Spacing scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
+
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-smooth:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-spring:  cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-out:     cubic-bezier(0.0, 0.0, 0.2, 1);
+  --dur-fast:     150ms;
+  --dur-base:     300ms;
+  --dur-slow:     600ms;
+  --dur-slower:   900ms;
+
+  /* Z-index layers */
+  --z-bg:      -1;
+  --z-base:     0;
+  --z-above:    10;
+  --z-overlay:  50;
+  --z-modal:    100;
+  --z-cursor:   1000;
+  --z-loader:   9999;
+}

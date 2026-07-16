@@ -1,0 +1,388 @@
+/* ============================================================
+   components.css — UI Components
+   Graduation Experience 2026 — Daniel Silva
+   ============================================================ */
+
+/* ── Glass Card ── */
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  box-shadow:
+    0 0 0 1px var(--glass-shadow),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform var(--dur-base) var(--ease-smooth),
+              box-shadow var(--dur-base) var(--ease-smooth);
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(0,245,255,0.2),
+    0 16px 48px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(0,245,255,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-6);
+  border-radius: var(--radius-full);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  transition:
+    transform var(--dur-fast) var(--ease-spring),
+    box-shadow var(--dur-base) var(--ease-smooth),
+    background var(--dur-base) var(--ease-smooth),
+    opacity var(--dur-fast);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Primary CTA */
+.btn-primary {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+  color: #050816;
+  box-shadow: 0 0 20px rgba(0,245,255,0.35), 0 4px 16px rgba(58,134,255,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 35px rgba(0,245,255,0.5), 0 8px 24px rgba(58,134,255,0.4);
+}
+
+/* Outline */
+.btn-outline {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid rgba(0,245,255,0.45);
+  box-shadow: 0 0 10px rgba(0,245,255,0.1), inset 0 0 10px rgba(0,245,255,0.03);
+}
+.btn-outline:hover {
+  background: rgba(0,245,255,0.08);
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0,245,255,0.3), inset 0 0 15px rgba(0,245,255,0.07);
+  transform: translateY(-2px);
+}
+
+/* WhatsApp */
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  font-size: 1rem;
+  padding: var(--sp-4) var(--sp-8);
+  box-shadow: 0 0 24px rgba(37,211,102,0.4), 0 4px 16px rgba(18,140,126,0.3);
+}
+.btn-whatsapp:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 40px rgba(37,211,102,0.55), 0 8px 24px rgba(18,140,126,0.4);
+}
+
+/* Ghost */
+.btn-ghost {
+  background: rgba(255,255,255,0.04);
+  color: var(--text-secondary);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* ── Section Labels ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  padding: var(--sp-1) var(--sp-3);
+  border: 1px solid rgba(0,245,255,0.25);
+  border-radius: var(--radius-full);
+  background: rgba(0,245,255,0.05);
+}
+.section-label::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 6px var(--cyan);
+  flex-shrink: 0;
+}
+
+/* ── LIVE Badge ── */
+.badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  color: #fff;
+  padding: var(--sp-1) var(--sp-3);
+  border-radius: var(--radius-full);
+  background: rgba(239, 68, 68, 0.85);
+  border: 1px solid rgba(239, 68, 68, 0.6);
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+}
+.badge-live .live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  animation: livePulse 1.2s ease-in-out infinite;
+  box-shadow: 0 0 5px #fff;
+}
+
+/* ── Timeline Card ── */
+.timeline-item {
+  position: relative;
+  padding-left: var(--sp-8);
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: -var(--sp-8);
+  width: 1px;
+  background: linear-gradient(to bottom, var(--cyan), transparent);
+}
+.timeline-item:last-child::before {
+  background: linear-gradient(to bottom, var(--cyan), rgba(0,245,255,0.2) 60%, transparent);
+}
+.timeline-dot {
+  position: absolute;
+  left: -5px;
+  top: var(--sp-6);
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--cyan);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 12px var(--cyan), 0 0 24px rgba(0,245,255,0.4);
+  z-index: 1;
+}
+
+/* ── Countdown Box ── */
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 90px;
+}
+.countdown-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  background: linear-gradient(135deg, #fff 30%, var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 8px rgba(0,245,255,0.3));
+  transition: transform 0.2s var(--ease-spring);
+  display: block;
+  min-width: 2ch;
+  text-align: center;
+}
+.countdown-number.flip {
+  animation: numberFlip 0.35s var(--ease-out);
+}
+.countdown-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.countdown-separator {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: rgba(0,245,255,0.4);
+  line-height: 1;
+  align-self: flex-start;
+  padding-top: var(--sp-2);
+}
+
+/* ── Music Button ── */
+#music-toggle {
+  position: fixed;
+  bottom: var(--sp-6);
+  right: var(--sp-6);
+  z-index: var(--z-overlay);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--dur-base) var(--ease-smooth);
+  box-shadow: 0 0 16px rgba(0,245,255,0.15);
+}
+#music-toggle:hover {
+  background: rgba(0,245,255,0.12);
+  box-shadow: 0 0 28px rgba(0,245,255,0.35);
+  transform: scale(1.08);
+}
+#music-toggle.playing {
+  animation: pulseGlow 2s ease-in-out infinite;
+  border-color: var(--cyan);
+}
+#music-toggle svg {
+  width: 22px;
+  height: 22px;
+  transition: transform var(--dur-base) var(--ease-spring);
+}
+#music-toggle:hover svg {
+  transform: scale(1.1);
+}
+
+/* ── Divider ── */
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--cyan) 50%, transparent 100%);
+  opacity: 0.25;
+  margin: var(--sp-4) 0;
+}
+
+/* ── Gradient Text ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 50%, var(--teal) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s linear infinite;
+}
+
+/* ── Scan line overlay ── */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-above);
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+}
+
+/* ── Section ── */
+.section {
+  position: relative;
+  padding: var(--sp-24) 0;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── Version Tag ── */
+.version-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--cyan);
+  padding: 2px 8px;
+  border: 1px solid rgba(0,245,255,0.3);
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  background: rgba(0,245,255,0.05);
+}
+
+/* ── Noise Texture ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-above);
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+/* ── Hero Particles ── */
+#bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-bg);
+  pointer-events: none;
+}
+
+/* ── Story phrases ── */
+.story-phrase {
+  display: block;
+  font-family: var(--font-main);
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+.story-phrase.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.story-phrase em {
+  color: var(--cyan);
+  font-style: normal;
+  font-weight: 600;
+}

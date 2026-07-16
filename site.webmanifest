@@ -1,0 +1,20 @@
+{
+  "name": "Graduación Daniel Silva 2026",
+  "short_name": "DS Graduación",
+  "description": "Experiencia de graduación de Daniel Silva — Ingeniero en Sistemas 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#050816",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "entertainment"],
+  "lang": "es-CO"
+}

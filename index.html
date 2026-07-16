@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <!-- ═══════════════════════════════════════════════════════
+       META BÁSICO
+       ═══════════════════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>Graduación Elkin Daniel Silva — Ingeniero en Sistemas 2026</title>
+  <meta name="description"
+    content="Te invito a celebrar mi graduación como Ingeniero en Sistemas. Una experiencia única el 23 de julio de 2026. Daniel Silva v5.0." />
+  <meta name="keywords" content="graduación, Elkin Daniel Silva, Ingeniero en Sistemas, 2026, celebración" />
+  <meta name="author" content="Elkin Daniel Silva" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://danielsilva.dev/graduacion-2026/" />
+
+  <!-- ═══════════════════════════════════════════════════════
+       OPEN GRAPH
+       ═══════════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Daniel Silva — Ingeniero en Sistemas 2026 🎓" />
+  <meta property="og:description"
+    content="Celebra conmigo uno de los momentos más importantes de mi vida. Mi graduación como Ingeniero en Sistemas. 23 de julio, 2026." />
+  <meta property="og:image" content="assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://danielsilva.dev/graduacion-2026/" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="Graduación Daniel Silva 2026" />
+
+  <!-- ═══════════════════════════════════════════════════════
+       TWITTER CARDS
+       ═══════════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Daniel Silva — Ingeniero en Sistemas 2026 🎓" />
+  <meta name="twitter:description"
+    content="Celebra conmigo mi graduación como Ingeniero en Sistemas. 23 de julio de 2026." />
+  <meta name="twitter:image" content="assets/img/og-image.png" />
+
+  <!-- ═══════════════════════════════════════════════════════
+       FAVICON & MANIFEST
+       ═══════════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/icons/favicon.svg" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#050816" />
+  <meta name="msapplication-TileColor" content="#050816" />
+
+  <!-- ═══════════════════════════════════════════════════════
+       FONTS (preconnect for performance)
+       ═══════════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- ═══════════════════════════════════════════════════════
+       CSS
+       ═══════════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ═══════════════════════════════════════════════════════
+       CDN LIBRARIES (non-blocking)
+       ═══════════════════════════════════════════════════════ -->
+  <!-- Three.js — must load before module script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r169/three.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis smooth scroll -->
+  <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STRUCTURED DATA
+       ═══════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Graduación Elkin Daniel Silva — Ingeniero en Sistemas",
+    "description": "Ceremonia de grado y celebración de Elkin Daniel Silva como Ingeniero en Sistemas.",
+    "startDate": "2026-07-23T09:00:00-05:00",
+    "endDate": "2026-07-23T23:59:00-05:00",
+    "location": {
+      "@type": "Place",
+      "name": "Universidad de San Gil Chiquinquirá",
+      "address": { "@type": "PostalAddress", "addressCountry": "CO" }
+    },
+    "organizer": {
+      "@type": "Person",
+      "name": "Elkin Daniel Silva"
+    },
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode"
+  }
+  </script>
+</head>
+
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#hero" class="skip-link">Ir al contenido principal</a>
+
+  <!-- ═══════════════════════════════════════════════════════
+       OVERLAYS (fixed, decorative)
+       ═══════════════════════════════════════════════════════ -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Background Canvas (particles) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Custom Cursor -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       LOADER — SYSTEM UPDATE
+       ═══════════════════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-label="Cargando experiencia">
+    <span id="loader-tag" class="loader-tag" style="opacity:0">// SYSTEM_BOOT_2026</span>
+
+    <p id="loader-system-update" class="loader-system-update" style="opacity:0">
+      SYSTEM UPDATE
+    </p>
+
+    <div class="loader-version-row">
+      <span id="loader-label" class="loader-label" style="display:none">CURRENT VERSION</span>
+
+      <!-- v4.0 (shown first) -->
+      <p id="loader-v-old" class="loader-version-text v-old" style="display:none">
+        Elkin Daniel Silva <span style="color:var(--cyan)">v4.0</span>
+      </p>
+
+      <!-- v5.0 (revealed after progress) -->
+      <p id="loader-v-new" class="loader-version-text v-new" style="display:none">
+        Elkin Daniel Silva v5.0
+      </p>
+      <p id="loader-role" class="loader-role" style="display:none">
+        System Engineer
+      </p>
+    </div>
+
+    <div class="loader-progress-wrap" aria-hidden="true">
+      <div id="loader-progress-bar" class="loader-progress-bar"></div>
+    </div>
+    <span id="loader-percent" class="loader-percent">0%</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="Inicio — Elkin Daniel Silva">Ing. Elkin Daniel Silva
+
+      </a>
+      <ul class="nav-items">
+        <li><a href="#story" aria-label="Ir a historia">Historia</a></li>
+        <li><a href="#timeline" aria-label="Ir a agenda">Agenda</a></li>
+        <li><a href="#countdown" aria-label="Ir a cuenta regresiva">Cuenta</a></li>
+        <li><a href="#confirmation" aria-label="Confirmar asistencia">Confirmar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section id="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+
+      <!-- Text Content -->
+      <div class="hero-content">
+        <p class="hero-eyebrow" aria-label="Ingeniero en sistemas">
+          Ingeniero en Sistemas
+        </p>
+
+        <h1 id="hero-title" class="hero-title">
+          <span class="name-line">Elkin Daniel<br>Silva</span>
+        </h1>
+
+        <p class="hero-desc">
+          Después de años de código, errores, aprendizajes y proyectos —
+          ha llegado el momento de celebrar una nueva versión.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#story" class="btn btn-primary" id="btn-start-experience"
+            aria-label="Iniciar experiencia, ir a la historia">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+              <path d="M10 8l6 4-6 4V8z" fill="currentColor" />
+            </svg>
+            Iniciar experiencia
+          </a>
+          <a href="#confirmation" class="btn btn-outline" id="btn-confirm-hero"
+            aria-label="Confirmar asistencia a la graduación">
+            Confirmar asistencia
+          </a>
+        </div>
+
+        <div style="margin-top: var(--sp-8); display:flex; gap: var(--sp-3); flex-wrap: wrap; align-items:center;">
+          <span class="version-tag">Graduación</span>
+          <span class="version-tag">23 · Jul · 2026</span>
+        </div>
+      </div>
+
+      <!-- 3D Sphere -->
+      <div class="hero-sphere-wrap" aria-hidden="true">
+        <div class="sphere-glow-ring"></div>
+        <canvas id="sphere-canvas" width="400" height="400"></canvas>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       STORYTELLING
+       ═══════════════════════════════════════════════════════ -->
+  <section id="story" class="section" aria-labelledby="story-heading">
+    <div class="story-inner">
+      <div style="text-align:center; margin-bottom: var(--sp-12);" class="reveal">
+        <span class="section-label">// Más que un recorrido</span>
+        <h2 id="story-heading" class="section-heading" style="margin-top: var(--sp-5);">
+          El camino hasta aquí
+        </h2>
+      </div>
+
+      <div class="story-phrases">
+        <span class="story-phrase">
+          Después de <em>años de aprendizaje</em>...
+        </span>
+        <span class="story-phrase" style="padding-left: 2rem;">
+          de <em>desafíos</em> que parecían imposibles...
+        </span>
+        <span class="story-phrase" style="padding-left: 4rem;">
+          de <em>proyectos</em> que pusieron a prueba cada límite...
+        </span>
+        <span class="story-phrase" style="padding-left: 2rem;">
+          de <em>errores convertidos en experiencia</em>...
+        </span>
+        <span class="story-phrase"
+          style="padding-left: 0; font-size: clamp(1.5rem, 4vw, 2.6rem); font-weight: 600; color: var(--text-primary);">
+          <em>ha llegado el momento de celebrar.</em>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       INVITATION
+       ═══════════════════════════════════════════════════════ -->
+  <section id="invitation" aria-labelledby="invitation-heading">
+    <div class="container">
+      <div class="invitation-card glass-card reveal">
+        <span class="section-label" style="margin-bottom: var(--sp-6); display:inline-flex;">// invitación
+          oficial</span>
+        <h2 id="invitation-heading" class="sr-only">Invitación</h2>
+
+        <p class="invitation-text">
+          Tengo el honor de invitarte a compartir conmigo
+        </p>
+        <p class="invitation-text">
+          uno de los momentos más importantes de mi vida.
+        </p>
+
+        <span class="invitation-highlight">
+          Mi graduación como Ingeniero en Sistemas
+        </span>
+
+        <div class="divider-glow" style="margin: var(--sp-5) auto; width: 40%;"></div>
+
+        <p class="invitation-text">
+          Será un honor contar con tu presencia.
+        </p>
+
+        <p class="invitation-sign" style="margin-top: var(--sp-8);">
+          — Elkin Daniel Silva · System Engineer ·
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       TIMELINE
+       ═══════════════════════════════════════════════════════ -->
+  <section id="timeline" aria-labelledby="timeline-heading">
+    <div class="container">
+
+      <div style="text-align:center; margin-bottom: var(--sp-12);" class="reveal">
+        <span class="section-label">// agenda del día</span>
+        <h2 id="timeline-heading" class="section-heading" style="margin-top: var(--sp-5);">
+          23 de Julio, 2026
+        </h2>
+        <p class="section-sub">Un día que recordaremos para siempre.</p>
+      </div>
+
+      <div class="timeline-grid">
+
+        <!-- Etapa 1: Ceremonia -->
+        <article class="timeline-card glass-card timeline-item-ceremony" aria-labelledby="ceremony-title">
+          <div style="display:flex; align-items:center; gap: var(--sp-3); flex-wrap:wrap;">
+            <span class="timeline-number">ETAPA 01</span>
+            <span class="badge-live" aria-label="Transmisión en vivo disponible">
+              <span class="live-dot" aria-hidden="true"></span>
+              LIVE
+            </span>
+          </div>
+
+          <h3 id="ceremony-title" class="timeline-event-name">Ceremonia</h3>
+          <p class="timeline-time">📍 23 Julio 2026 &nbsp;·&nbsp; 9:00 AM</p>
+
+          <p class="timeline-desc">
+            La ceremonia oficial de grado. Transmisión en vivo por Facebook.
+            ¡No te pierdas este momento histórico!
+          </p>
+
+          <div class="timeline-actions">
+            <a href="https://www.facebook.com/unisangilchiquinquira/?locale=es_LA" target="_blank"
+              rel="noopener noreferrer" class="btn btn-primary" id="btn-live-stream"
+              aria-label="Ver transmisión en vivo por Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+                <path d="M10 8l6 4-6 4V8z" fill="currentColor" />
+              </svg>
+              Ver transmisión
+            </a>
+          </div>
+        </article>
+
+        <!-- Etapa 2: Cena -->
+        <article class="timeline-card glass-card" aria-labelledby="dinner-title">
+          <span class="timeline-number">ETAPA 02</span>
+
+          <h3 id="dinner-title" class="timeline-event-name">Cena</h3>
+          <p class="timeline-time">🌆 23 Julio 2026 &nbsp;·&nbsp; 7:00 PM</p>
+
+          <p class="timeline-desc">
+            Una velada especial en restaurante
+            <strong data-config="restaurant" style="color: var(--text-primary);">El Grán Balcón</strong>.
+            <br>
+            <span data-config="address"
+              style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--cyan); letter-spacing:0.05em;">Cra
+              13 N° 18 - 37</span>
+          </p>
+
+          <div class="timeline-actions">
+            <a href="https://maps.google.com/?q=El+Gran+Balcon+Cra+13+No+18-37" data-config="maps-link" target="_blank"
+              rel="noopener noreferrer" class="btn btn-outline" id="btn-maps"
+              aria-label="Abrir ubicación en Google Maps">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  fill="currentColor" />
+              </svg>
+              Abrir Google Maps
+            </a>
+          </div>
+        </article>
+
+        <!-- Etapa 3: Celebración -->
+        <article class="timeline-card glass-card" aria-labelledby="celebration-title">
+          <span class="timeline-number">ETAPA 03</span>
+
+          <h3 id="celebration-title" class="timeline-event-name">Celebración</h3>
+          <p class="timeline-time">🎉 La noche continúa...</p>
+
+          <p class="timeline-desc">
+            Porque los mejores momentos no terminan con la cena.
+            <br><br>
+            La celebración continúa. ¡Te espero!
+          </p>
+
+          <div style="margin-top: auto; padding-top: var(--sp-4);">
+            <span
+              style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--purple-light); letter-spacing: 0.1em;">
+              ✦ &nbsp; Sorpresas por revelar
+            </span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       COUNTDOWN
+       ═══════════════════════════════════════════════════════ -->
+  <section id="countdown" aria-labelledby="countdown-heading">
+    <div class="container">
+
+      <div class="reveal" style="margin-bottom: var(--sp-8);">
+        <span class="section-label">// tiempo restante</span>
+      </div>
+
+      <div class="countdown-card glass-card reveal">
+        <h2 id="countdown-heading" class="section-heading" style="margin-bottom: var(--sp-2);">
+          Cuenta regresiva
+        </h2>
+        <p class="section-sub">Para la ceremonia del 23 de julio, 2026 · 9:00 AM</p>
+
+        <div class="countdown-row" role="timer" aria-label="Cuenta regresiva hasta la graduación" aria-live="polite">
+          <!-- Days -->
+          <div class="countdown-unit">
+            <span id="cd-days" class="countdown-number" aria-label="días">00</span>
+            <span class="countdown-label">Días</span>
+          </div>
+
+          <span class="countdown-separator" aria-hidden="true">:</span>
+
+          <!-- Hours -->
+          <div class="countdown-unit">
+            <span id="cd-hours" class="countdown-number" aria-label="horas">00</span>
+            <span class="countdown-label">Horas</span>
+          </div>
+
+          <span class="countdown-separator" aria-hidden="true">:</span>
+
+          <!-- Minutes -->
+          <div class="countdown-unit">
+            <span id="cd-mins" class="countdown-number" aria-label="minutos">00</span>
+            <span class="countdown-label">Minutos</span>
+          </div>
+
+          <span class="countdown-separator" aria-hidden="true">:</span>
+
+          <!-- Seconds -->
+          <div class="countdown-unit">
+            <span id="cd-secs" class="countdown-number" aria-label="segundos">00</span>
+            <span class="countdown-label">Segundos</span>
+          </div>
+        </div>
+
+        <p id="countdown-status"
+          style="margin-top: var(--sp-6); font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em;">
+          Elkin Daniel Silva · System Engineer
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CONFIRMATION / WHATSAPP
+       ═══════════════════════════════════════════════════════ -->
+  <section id="confirmation" aria-labelledby="confirmation-heading">
+    <div class="container">
+
+      <div class="confirmation-card glass-card reveal">
+        <span class="section-label" style="margin-bottom: var(--sp-6); display:inline-flex;">// confirmación</span>
+
+        <h2 id="confirmation-heading" class="section-heading" style="margin-bottom: var(--sp-3);">
+          ¿Vendrás?
+        </h2>
+
+        <p class="confirmation-desc">
+          Confirma tu asistencia directamente por WhatsApp.<br>
+          Será un honor contar con tu presencia en este momento especial.
+        </p>
+
+        <a id="whatsapp-btn" href="#" class="btn btn-whatsapp"
+          aria-label="Confirmar asistencia por WhatsApp a Daniel Silva" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M11.998 2.009C6.47 2.009 2 6.479 2 12.009c0 1.758.46 3.41 1.266 4.847L2 22l5.27-1.245A9.956 9.956 0 0011.998 22c5.528 0 9.998-4.47 9.998-9.991 0-5.52-4.47-9.999-9.998-9.999zm0 18.187a8.177 8.177 0 01-4.165-1.138l-.299-.177-3.128.739.79-2.995-.196-.31A8.167 8.167 0 013.823 12c0-4.509 3.669-8.178 8.175-8.178 4.508 0 8.177 3.669 8.177 8.178 0 4.51-3.669 8.196-8.177 8.196z" />
+          </svg>
+          Confirmar asistencia
+        </a>
+
+        <p
+          style="margin-top: var(--sp-5); font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-muted); letter-spacing: 0.08em;">
+          Se abrirá WhatsApp con un mensaje pre-cargado
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       CLOSING — MISSION ACCOMPLISHED
+       ═══════════════════════════════════════════════════════ -->
+  <section id="closing" aria-labelledby="closing-heading">
+    <div class="closing-inner">
+
+      <div class="divider-glow" style="margin-bottom: var(--sp-16);"></div>
+
+      <p class="closing-status">
+        &gt;&gt; STATUS
+      </p>
+
+      <h2 id="closing-heading" class="closing-title">
+        Mission<br>Accomplished
+      </h2>
+
+      <p class="closing-name">Elkin Daniel Silva</p>
+      <p class="closing-role">System Engineer</p>
+
+      <div class="closing-version">
+        <span class="version-tag" style="font-size: 0.85rem; padding: 4px 14px;">Graduación</span>
+      </div>
+
+      <div class="divider-glow" style="margin: var(--sp-8) auto; width: 30%;"></div>
+
+      <p class="closing-thank">
+        Gracias por hacer parte de este momento.<br>
+        <span style="color: var(--cyan);">Cada persona en mi vida ha sido parte de este logro.</span>
+      </p>
+
+      <div style="margin-top: var(--sp-10);">
+        <a href="#confirmation" class="btn btn-outline" id="btn-confirm-closing"
+          aria-label="Confirmar asistencia desde la sección final">
+          Confirmar asistencia
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner container">
+      <p class="footer-text">Elkin Daniel Silva · System Engineer · v5.0 · 2026</p>
+      <p class="footer-text" style="margin-top: var(--sp-1);">
+        &copy; 2026 · Todos los derechos reservados
+      </p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MUSIC TOGGLE (floating button)
+       ═══════════════════════════════════════════════════════ -->
+  <button id="music-toggle" aria-label="Activar música ambiente" title="Música ambiente" type="button">
+    <!-- Icon: music note (off state) -->
+    <svg id="music-icon-off" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.7" aria-hidden="true">
+      <path d="M9 18V5l12-2v13" />
+      <circle cx="6" cy="18" r="3" />
+      <circle cx="18" cy="16" r="3" />
+    </svg>
+    <!-- Icon: pause / playing state -->
+    <svg id="music-icon-on" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.7" style="display:none" aria-hidden="true">
+      <rect x="6" y="4" width="4" height="16" rx="1" fill="currentColor" />
+      <rect x="14" y="4" width="4" height="16" rx="1" fill="currentColor" />
+    </svg>
+  </button>
+
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN SCRIPT (ES Module)
+       ═══════════════════════════════════════════════════════ -->
+  <script type="module" src="js/main.js"></script>
+</body>
+
+</html>

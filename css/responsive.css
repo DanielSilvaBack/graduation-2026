@@ -1,0 +1,132 @@
+/* ============================================================
+   responsive.css — Mobile-First Breakpoints
+   Graduation Experience 2026 — Daniel Silva
+   ============================================================ */
+
+/* ── Base (mobile default) ── */
+.hero-title {
+  font-size: clamp(2.8rem, 9vw, 6rem);
+}
+.hero-subtitle {
+  font-size: clamp(0.8rem, 2.5vw, 1rem);
+}
+
+#sphere-canvas {
+  width: 280px !important;
+  height: 280px !important;
+}
+
+.timeline-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.countdown-row {
+  gap: var(--sp-4);
+}
+.countdown-unit {
+  min-width: 70px;
+}
+.countdown-number {
+  font-size: clamp(2rem, 8vw, 4.5rem);
+}
+
+.section-heading {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+/* Loader mobile */
+.loader-version-text {
+  font-size: clamp(1.8rem, 7vw, 3rem);
+}
+
+/* Hero stack */
+.hero-inner {
+  flex-direction: column;
+  gap: var(--sp-10);
+  text-align: center;
+}
+.hero-actions {
+  justify-content: center;
+}
+
+#music-toggle {
+  bottom: var(--sp-5);
+  right: var(--sp-5);
+  width: 46px;
+  height: 46px;
+}
+
+/* ── sm: 480px ── */
+@media (min-width: 480px) {
+  #sphere-canvas {
+    width: 320px !important;
+    height: 320px !important;
+  }
+}
+
+/* ── md: 768px ── */
+@media (min-width: 768px) {
+  #sphere-canvas {
+    width: 420px !important;
+    height: 420px !important;
+  }
+
+  .hero-inner {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: var(--sp-16);
+  }
+  .hero-actions {
+    justify-content: flex-start;
+  }
+
+  .timeline-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-8);
+  }
+  .timeline-item-ceremony {
+    grid-column: 1 / -1;
+  }
+
+  .countdown-row {
+    gap: var(--sp-6);
+  }
+  .countdown-unit {
+    min-width: 90px;
+  }
+}
+
+/* ── lg: 1024px ── */
+@media (min-width: 1024px) {
+  #sphere-canvas {
+    width: 500px !important;
+    height: 500px !important;
+  }
+
+  .timeline-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .timeline-item-ceremony {
+    grid-column: auto;
+  }
+}
+
+/* ── xl: 1280px ── */
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 var(--sp-8);
+  }
+}
+
+/* ── Touch devices — restore default cursor ── */
+@media (hover: none) or (pointer: coarse) {
+  #cursor-dot,
+  #cursor-ring {
+    display: none !important;
+  }
+  * { cursor: auto !important; }
+}

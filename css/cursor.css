@@ -1,0 +1,81 @@
+/* ============================================================
+   cursor.css — Custom Glow Cursor
+   Graduation Experience 2026 — Daniel Silva
+   ============================================================ */
+
+/* Hide default cursor on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+/* ── Cursor Dot (inner) ── */
+#cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--cyan);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  transition: width var(--dur-fast) var(--ease-smooth),
+              height var(--dur-fast) var(--ease-smooth),
+              background var(--dur-fast) var(--ease-smooth),
+              opacity var(--dur-fast) var(--ease-smooth);
+  box-shadow: 0 0 6px 2px var(--cyan);
+}
+
+/* ── Cursor Ring (outer) ── */
+#cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid rgba(0, 245, 255, 0.55);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+  z-index: var(--z-cursor);
+  transform: translate(-50%, -50%);
+  transition: width 0.18s var(--ease-smooth),
+              height 0.18s var(--ease-smooth),
+              border-color 0.18s var(--ease-smooth),
+              opacity 0.18s var(--ease-smooth);
+  backdrop-filter: blur(0px);
+}
+
+/* ── Hover state — over interactive elements ── */
+.cursor-hover #cursor-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--blue);
+  box-shadow: 0 0 14px 4px var(--blue);
+}
+.cursor-hover #cursor-ring {
+  width: 56px;
+  height: 56px;
+  border-color: rgba(58, 134, 255, 0.7);
+  box-shadow: 0 0 20px rgba(58, 134, 255, 0.25);
+}
+
+/* ── Click state ── */
+.cursor-click #cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--teal);
+}
+.cursor-click #cursor-ring {
+  width: 28px;
+  height: 28px;
+  border-color: var(--teal);
+}
+
+/* ── Hidden when leaving window ── */
+.cursor-hidden #cursor-dot,
+.cursor-hidden #cursor-ring {
+  opacity: 0;
+}
