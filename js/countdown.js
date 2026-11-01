@@ -1,6 +1,6 @@
 /**
  * countdown.js — Real-Time Countdown to Graduation Day
- * Target: July 23, 2026 at 09:00 AM (Colombia time = UTC-5)
+ * Target: November 23, 2026 at 09:00 AM (Colombia time = UTC-5)
  * Graduation Experience 2026 — Daniel Silva
  */
 
@@ -14,9 +14,9 @@ export function initCountdown() {
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  // Target: July 23, 2026 09:00:00 Colombia (UTC-5)
+  // Target: November 23, 2026 09:00:00 Colombia (UTC-5)
   // Using explicit ISO string with offset
-  const TARGET = new Date('2026-07-23T09:00:00-05:00').getTime();
+  const TARGET = new Date('2026-11-23T09:00:00-05:00').getTime();
 
   let prevValues = { days: -1, hours: -1, mins: -1, secs: -1 };
 

@@ -10,8 +10,8 @@ export const CONFIG = {
   name:        'Daniel Silva',
   title:       'Ingeniero en Sistemas',
   version:     'v5.0',
-  date:        '2026-07-23T09:00:00-05:00',  // Colombia UTC-5
-  dateDisplay: '23 de Julio, 2026',
+  date:        '2026-11-23T09:00:00-05:00',  // Colombia UTC-5
+  dateDisplay: '23 de Noviembre, 2026',
   timeDisplay: '9:00 AM',
   restaurant:  'El Grán Balcón',
   address:     'Cra 13 N° 18 - 37',

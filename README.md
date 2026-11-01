@@ -62,7 +62,7 @@ Editar `js/main.js` → objeto `CONFIG`:
 export const CONFIG = {
   name:        'Daniel Silva',
   title:       'Ingeniero en Sistemas',
-  date:        '2026-07-23T09:00:00-05:00',
+  date:        '2026-11-23T09:00:00-05:00',
   restaurant:  'El Grán Balcón',
   address:     'Cra 13 N° 18 - 37',
   mapsUrl:     'https://maps.google.com/...',

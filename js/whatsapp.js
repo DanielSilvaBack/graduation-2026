@@ -10,7 +10,7 @@ export function initWhatsApp(CONFIG) {
   if (!btn) return;
 
   const message = encodeURIComponent(
-    `Hola Daniel. 🎓\n\nConfirmo mi asistencia a tu graduación.\n\n¡Nos vemos el 23 de julio! 🎉`
+    `Hola Daniel. 🎓\n\nConfirmo mi asistencia a tu graduación.\n\n¡Nos vemos el 23 de noviembre! 🎉`
   );
 
   // Remove non-digit characters from phone number
